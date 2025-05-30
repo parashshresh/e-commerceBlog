@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 
 // START for vite react frontend and laravel backend
 use App\Models\Product;
@@ -18,6 +19,12 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/pricing', function () {
     return view('pricing');
 });
+//START for blog
+Route::resource('posts', PostController::class);
+Route::get('/blog', [PostController::class, 'index'])->name('blog');
+
+// END for blog
+
 Route::resource('products', ProductController::class);
 // for single product page
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
