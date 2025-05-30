@@ -50,6 +50,13 @@
                             {{ $product->description }}
                         </div>
                     </div>
+
+                    <div class="row">
+                        <label for="image_image" class="col-md-4 col-form-label text-md-end text-start"><strong>image:</strong></label>
+                        <div class="col-md-6" style="line-height: 35px;">
+                            <img src="{{ $product->image_url }}" alt="">
+                        </div>
+                    </div>
         
             </div>
         </div>

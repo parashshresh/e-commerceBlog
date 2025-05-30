@@ -19,7 +19,9 @@
     @foreach ($products as $product)
       <div class="col-6 col-md-4 col-lg-3">
         <div class="card shadow-sm h-100">
-          <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->name }}">
+          <a href="{{ route('products.show', $product) }}">{{ $product->name }}
+            <img src="{{ $product->image_url ?? 'https://via.placeholder.com/300x200' }}" class="card-img-top" alt="{{ $product->name }}">
+          </a>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ $product->name }}</h5>
             <p class="price text-primary fw-bold mb-3">${{ number_format($product->price, 2) }}</p>

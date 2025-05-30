@@ -16,3 +16,5 @@ Route::get('/pricing', function () {
     return view('pricing');
 });
 Route::resource('products', ProductController::class);
+// for single product page
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
