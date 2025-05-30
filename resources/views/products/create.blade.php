@@ -79,6 +79,20 @@
                         </div>
                     </div>
 
+                    <!-- Product Category -->
+                    <div class="mb-3">
+                        <label for="category_id" class="form-label">Category</label>
+                        <select name="category_id" id="category_id" class="form-select">
+                            <option value="" disabled selected>Select Category</option>
+                            @foreach($categories as $category)
+                            <option value="{{ $category->id }}"
+                                {{ (old('category_id') ?? $product->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="mb-3 row">
                         <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Add Product">
                     </div>

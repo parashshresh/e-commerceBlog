@@ -28,6 +28,7 @@ class UpdateProductRequest extends FormRequest
             'price' => 'required',
             'description' => 'nullable|string',
             'image' => 'nullable|image|max:2048', // <-- OK to validate here
+            'category_id' => 'required|exists:categories,id',  // validate category
         ];
     }
 }

@@ -7,6 +7,9 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+// START: Import the Category model
+use App\Models\Category;
+// END: Import the Category model
 
 class ProductController extends Controller
 {
@@ -25,7 +28,8 @@ class ProductController extends Controller
      */
     public function create(): View
     {
-        return view('products.create');
+        $categories = Category::all();  // fetch all categories
+        return view('products.create', compact('categories'));
     }
 
     /**
@@ -41,6 +45,7 @@ class ProductController extends Controller
         }
 
         Product::create($data);
+
 
         return redirect()->route('products.index')
             ->withSuccess('New product is added successfully.');
@@ -59,7 +64,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product): View
     {
-        return view('products.edit', compact('product'));
+        $categories = Category::all();  // fetch all categories
+        return view('products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -67,7 +73,14 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product): RedirectResponse
     {
-        $product->update($request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('products', 'public');
+            $data['image_url'] = '/storage/' . $imagePath;
+        }
+
+        $product->update($data);
 
         return redirect()->back()
             ->withSuccess('Product is updated successfully.');

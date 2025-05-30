@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
 
 // START for vite react frontend and laravel backend
 use App\Models\Product;
@@ -28,6 +29,10 @@ Route::get('/blog', [PostController::class, 'index'])->name('blog');
 Route::resource('products', ProductController::class);
 // for single product page
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+
+
+Route::resource('categories', CategoryController::class);
+
 
 // for vite react frontend and laravel backend
 Route::get('/api/products', function () {
