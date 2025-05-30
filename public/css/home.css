@@ -1,0 +1,172 @@
+/* Hero Section */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero .btn {
+  padding: 0.85rem 2.5rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero .btn:hover {
+  background-color: #ffc107; /* Bootstrap warning yellow */
+  color: #212529;
+}
+
+/* Featured Products Section */
+.container h2 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #343a40;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  background-color: #fff;
+}
+
+.card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 1rem 1rem 0.5rem 1rem;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  color: #212529;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-footer {
+  padding-top: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+.price {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.btn-outline-primary {
+  border-radius: 50px;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Call to Action Section */
+.bg-primary.text-white.py-5 {
+  background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+  text-align: center;
+}
+
+.bg-primary.text-white.py-5 h3 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+form input.form-control-lg {
+  border-radius: 50px;
+  padding-left: 1.5rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.25);
+  border: none;
+  transition: box-shadow 0.3s ease;
+}
+
+form input.form-control-lg:focus {
+  box-shadow: 0 0 10px #ffc107;
+  outline: none;
+}
+
+form button.btn-light {
+  border-radius: 50px;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+form button.btn-light:hover {
+  background-color: #ffc107;
+  color: #212529;
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.6);
+}
+
+/* Responsive Tweaks */
+@media (max-width: 767.98px) {
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+  
+  .container h2 {
+    font-size: 2rem;
+  }
+  
+  .card-img-top {
+    height: 150px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+  
+  .hero p.lead {
+    font-size: 1rem;
+  }
+  
+  form .col-9,
+  form .col-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  form .col-3 {
+    margin-top: 1rem;
+  }
+}
